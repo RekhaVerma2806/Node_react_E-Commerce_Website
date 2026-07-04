@@ -1,27 +1,15 @@
 const express  = require('express');
-
-const mongoose = require('mongoose');
-
+require('./db/config');
+const User = require('./db/User');
 const app = express();
+app.use(express.json());
+app.post("/register", async (req,resp)=>{
+    // resp.send("api is working");
+    // resp.send(req.body);
 
-const connectDB = async () => {
-    mongoose.connect("mongodb://localhost:27017/e-commerce");
-    const productSchema = new mongoose.Schema({
-        name: String,
-        price: Number,
-        description: String,
-        image: String
-    });
-    const Product = mongoose.model('Product', productSchema);
-    const data = await Product.find();
-    console.warn(data);
-}
-
-connectDB();
-
-app.get("/",(req,resp)=>{
-    resp.send("Hello World");
-
+    let user = new User(req.body);
+    let result = await user.save();
+    resp.send(result);
 });
 
 app.listen(5000);
