@@ -23,7 +23,7 @@ const Login = () => {
         result = await result.json();
         console.warn(result);
         if(result.name){
-            localStorage.setItem("user",JSON.stringify(result.user));
+            localStorage.setItem("user",JSON.stringify(result));
             navigate('/');
         }else{
             alert("Please enter correct details");

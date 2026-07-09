@@ -5,6 +5,14 @@
 nav {
   background-color: #333;
   padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  height: 40px;
+  border-radius: 5px;
+  margin-right: 20px;
 }
 
 nav ul {
@@ -14,6 +22,7 @@ nav ul {
   gap: 20px;
   margin: 0;
   padding: 0;
+  flex: 1;
 }
 
 nav ul li a {
@@ -79,4 +88,9 @@ footer p {
 
 .nav-right {
   margin-left: auto;
+}
+
+.nav-user {
+  color: #f0a500;
+  margin-right: 10px;
 }
