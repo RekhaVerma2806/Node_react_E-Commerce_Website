@@ -76,3 +76,7 @@ footer p {
 .signup-btn:hover {
   background-color: #d4920a;
 }
+
+.nav-right {
+  margin-left: auto;
+}

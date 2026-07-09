@@ -6,24 +6,25 @@ const Nav = () => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
-    console.log("Logged out");
     navigate('/signup');
   }
   return (
     <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/products">Products</Link></li>
-        <li><Link to="/about">About</Link></li>
-        {auth ? (
-          <li><Link to="/signup" onClick={logout}>Logout</Link></li>
-        ) : (
-          <>
-            <li><Link to="/signup">Signup</Link></li>
-            <li><Link to="/login">Login</Link></li>
-          </>
-        )}
-      </ul>
+      {auth ? (
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/products">Products</Link></li>
+          <li><Link to="/add">Add Products</Link></li>
+          <li><Link to="/update">Update Products</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li className="nav-right"><Link to="/signup" onClick={logout}>Logout</Link></li>
+        </ul>
+      ) : (
+        <ul>
+          <li className="nav-right"><Link to="/signup">Signup</Link></li>
+          <li><Link to="/login">Login</Link></li>
+        </ul>
+      )}
     </nav>
   )
 }
