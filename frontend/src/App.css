@@ -97,3 +97,8 @@ footer p {
   color: #f0a500;
   margin-right: 50px;
 }
+
+.invalid-input {
+  color: red;
+  font-size: 13px;
+}
