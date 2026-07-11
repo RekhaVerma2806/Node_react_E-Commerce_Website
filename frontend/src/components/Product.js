@@ -24,6 +24,7 @@ const Product = () => {
                         <th>Price</th>
                         <th>Category</th>
                         <th>Company</th>
+                        <th>Operations</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,6 +35,7 @@ const Product = () => {
                             <td>₹{product.price}</td>
                             <td>{product.category}</td>
                             <td>{product.company}</td>
+                            <td><button className="delete-btn">Delete</button></td>
                         </tr>
                     ))}
                 </tbody>
