@@ -13,6 +13,16 @@ const Product = () => {
         if (result) setProducts(result);
     }
 
+    const deleteProduct = async (id) => {
+        let result = await fetch(`http://localhost:5000/product/${id}`, {
+            method: 'DELETE'
+        });
+        result = await result.json();
+        if (result) {
+            getProducts();
+        }
+    }
+
     return (
         <div className="product-list-container">
             <h1>Product List</h1>
@@ -35,7 +45,7 @@ const Product = () => {
                             <td>₹{product.price}</td>
                             <td>{product.category}</td>
                             <td>{product.company}</td>
-                            <td><button className="delete-btn">Delete</button></td>
+                            <td><button onClick={() => deleteProduct(product._id)} className="delete-btn">Delete</button></td>
                         </tr>
                     ))}
                 </tbody>
