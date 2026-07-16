@@ -31,6 +31,8 @@ const Product = () => {
             let result = await fetch(`http://localhost:5000/search/${key}`);
             result = await result.json();
             setProducts(result);
+        }else{
+            getProducts();
         }
     }
 
@@ -50,7 +52,7 @@ const Product = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map((product, index) => (
+                    {products.length > 0 ? products.map((product, index) => (
                         <tr key={product._id}>
                             <td>{index + 1}</td>
                             <td>{product.name}</td>
@@ -62,7 +64,10 @@ const Product = () => {
                                 <button onClick={() => deleteProduct(product._id)} className="delete-btn">Delete</button>
                             </td>
                         </tr>
-                    ))}
+                    )) :
+                        <tr>
+                            <td colSpan="6">No products found</td>
+                        </tr>}
                 </tbody>
             </table>
         </div>
