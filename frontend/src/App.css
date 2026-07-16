@@ -132,6 +132,20 @@ footer p {
   font-size: 13px;
 }
 
+.search-product {
+  width: 300px;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-product:focus {
+  border-color: #f0a500;
+}
+
 .update-btn {
   padding: 6px 14px;
   background-color: #4CAF50;

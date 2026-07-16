@@ -24,9 +24,20 @@ const Product = () => {
         }
     }
 
+    const searchHandle = async (e) => {
+        // console.log(e.target.value);
+        let key = e.target.value;
+        if (key) {
+            let result = await fetch(`http://localhost:5000/search/${key}`);
+            result = await result.json();
+            setProducts(result);
+        }
+    }
+
     return (
         <div className="product-list-container">
             <h1>Product List</h1>
+            <input type="text" placeholder='Search Product' className='search-product' onChange={searchHandle} />
             <table className="product-table">
                 <thead>
                     <tr>
