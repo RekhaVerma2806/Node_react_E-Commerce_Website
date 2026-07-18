@@ -25,9 +25,10 @@ const Signup = () => {
             }
         });
         let data = await result.json();
-        console.log(data);
-        localStorage.setItem("user", JSON.stringify(data));
-        if(data){
+        // console.log(data);
+        localStorage.setItem("user", JSON.stringify(data.result));
+        localStorage.setItem("token", data.auth);
+        if(data.result){
             navigate('/');
         }
     }
